@@ -87,3 +87,4 @@ Route::get("/controller/hello/{name}", [HelloController::class, "hello"]);
 Route::post("/input/type", [InputController::class, "inputType"]);
 Route::post("/input/filter/only", [InputController::class, "filterOnly"]);
 Route::post("/input/filter/except", [InputController::class, "filterExcept"]);
+Route::post("/input/filter/merge", [InputController::class, "filterMerge"]);

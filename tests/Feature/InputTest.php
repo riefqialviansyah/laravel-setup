@@ -30,11 +30,20 @@ class InputTest extends TestCase
 
     public function test_filterExcept()
     {
-        $this->post("/input/filter/only", [
+        $this->post("/input/filter/except", [
             "name"=> "Riefqi Alviansyah",
             "admin" => true,
             "age" => 24
-            ])->assertSeeText("Riefqi Alviansyah")->assertSeeText("Alviansyah")->assertDontSeeText("Dwi");
+            ])->assertSeeText("Riefqi Alviansyah")->assertSeeText("24")->assertDontSeeText("admin");
+    }
+
+    public function test_filterMerge()
+    {
+        $this->post("/input/filter/merge",[
+            "name"=> "Riefqi Alviansyah",
+            "admin" => true,
+            "age" => 24
+            ])->assertSeeText("Riefqi Alviansyah")->assertSeeText("24")->assertSeeText("false");
     }
 
 }
